@@ -77,7 +77,8 @@ config.search.CLASS = [
 ];
 config.search.TEXT = [ //!
 	"adapt",
-	"heal",
+	"restore",
+	"holding",
 	"draw",
 	"recruit",
 	"battlecry",

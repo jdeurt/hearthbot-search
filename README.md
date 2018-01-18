@@ -1,7 +1,24 @@
 # hearthbot-search
 A attribute search addon for the /r/hearthstone discord cardbot
 
-## Card object examples
+### Supported attributes
+* cost
+  - any whole number
+* attack
+  - any whole number
+* health
+  - any whole number
+* type
+  - minion, spell, weapon, hero
+* rarity
+  - free, common, rare, epic, legendary
+* class
+  - neutral, any of the 9 heroes
+* text
+  - a key word (to see the list of supported key words scroll to the bottom)
+
+
+### Card object examples
 #### Minion
 ```javascript
 "40378": {
@@ -20,7 +37,7 @@ A attribute search addon for the /r/hearthstone discord cardbot
 }
 ```
 #### Spell
-```js
+```javascript
 "315": {
     "name": "Fireball",
     "set": "Basic",
@@ -51,3 +68,33 @@ A attribute search addon for the /r/hearthstone discord cardbot
     "health": 2
     }
 ```
+
+### Supported key words
+* adapt
+* restore
+* holding
+* draw
+* recruit
+* battlecry
+* charge
+* choose one
+* combo
+* counter
+* deathrattle
+* discover
+* enrage
+* freeze
+* immune
+* inspire
+* lifesteal
+* mega-windfury
+* overload
+* poisonous
+* quest
+* silence
+* stealth
+* spell damage
+* taunt
+* secret
+* divine shield
+* windfury

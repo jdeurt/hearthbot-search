@@ -47,7 +47,7 @@ module.exports = function(input) {
     }
     if(input.includes("mana")) {
         var mana = input.match(/\d+\smana/i)[0];
-        toSearch.cost = mana.match(/\d+/)[0];
+        toSearch.cost = parseInt(mana.match(/\d+/)[0]);
     }
 
     /*
