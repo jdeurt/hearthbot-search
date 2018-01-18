@@ -30,10 +30,10 @@ module.exports = function(input) {
             toSearch[s] = input.matchWithArray(array).str;
     };
 
-    pushSearch(config.search.RARITY, rarity);
-    pushSearch(config.search.TYPE, type);
-    pushSearch(config.search.CLASS, playerClass);
-    pushSearch(config.search.TEXT, text);
+    pushSearch(config.search.RARITY, "rarity");
+    pushSearch(config.search.TYPE, "type");
+    pushSearch(config.search.CLASS, "class");
+    pushSearch(config.search.TEXT, "text");
     if(input.includes("/")) {
         toSearch.attack
     }
