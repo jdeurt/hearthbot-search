@@ -4,6 +4,7 @@ var auth = require('./auth');
 var config = require('./config');
 var deckstrings = require('deckstrings');
 var fetch = require('node-fetch');
+var attrSearch = require('./attr-search');
 fetch.Promise = require('bluebird');
 
 logger.level = 'debug';
