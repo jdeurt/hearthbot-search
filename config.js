@@ -39,7 +39,7 @@ config.KEYWORDS = [ // keywords to bold
 // Going to have to add some trigger words for the search functionality
 
 /* Not an option for now
-config.search.RACES = [ //!
+config.search.TRIBE = [ //!
 	"dragon",
 	"totem",
 	"demon",
@@ -50,20 +50,20 @@ config.search.RACES = [ //!
 	"murloc"
 ];
 */
-config.search.RARITIES = [
-	//"free",
+config.search.RARITY = [
+	"free",
 	"common",
 	"rare",
 	"epic",
 	"legendary"
 ];
-config.search.TYPES = [
+config.search.TYPE = [
 	"minion",
 	"spell",
 	"weapon",
 	"hero"
 ];
-config.search.HEROES = [
+config.search.CLASS = [
 	"druid",
 	"shaman",
 	"mage",
@@ -72,9 +72,10 @@ config.search.HEROES = [
 	"hunter",
 	"priest",
 	"paladin",
-	"rogue"
+	"rogue",
+	"neutral"
 ];
-config.search.TAGS = [ //!
+config.search.TEXT = [ //!
 	"adapt",
 	"heal",
 	"draw",
@@ -104,13 +105,13 @@ config.search.TAGS = [ //!
 	"windfury"
 ];
 config.search.SAFE = [
-	...config.search.RARITIES,
-	...config.search.TYPES,
-	...config.search.HEROES
+	...config.search.RARITY,
+	...config.search.TYPE,
+	...config.search.CLASS
 ]
 config.search.UNSAFE = [
-	//...config.search.RACES,
-	...config.search.TAGS
+	//...config.search.TRIBE,
+	...config.search.TEXT
 ];
 config.search.ALL = [
 	...config.search.SAFE,
