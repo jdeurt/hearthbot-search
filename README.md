@@ -1,2 +1,2 @@
 # hearthbot-search
-A deep card search addon for the card bot.
+A card attribute search addon for the /r/hearthstone reddit card bot.
