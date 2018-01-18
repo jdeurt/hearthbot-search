@@ -1,0 +1,6 @@
+auth = {};
+
+auth.TOKEN = "TOKEN";
+auth.KEY = "KEY";
+
+module.exports = auth;
