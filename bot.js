@@ -93,16 +93,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				cardsSent++;
 			});
 
-			// if no matches were found, it means thats it's most likely a more complex search
-			if(cardsSent < 1) {
-				// check for trigger words and ignore if none are found
-				var regex = new RegExp(`(^|\s)(${config.search.ALL.join("|")})($|\s)`, i);
-				if(!card.includes(regex))
-					return;
-
-				// do stuff here
-
-			}
 		}
 	}
 
