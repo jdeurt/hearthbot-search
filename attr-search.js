@@ -12,7 +12,7 @@ module.exports = function(input) {
     // will only return first result
     String.prototype.matchWithArray = function(array) {
         var r = {bool, str = []};
-        var regex = new RegExp("("+array.join("|")+")", "gi");
+        var regex = new RegExp(array.join("|"), "gi");
         r.bool = this.includes(regex);
         this.match(regex).forEach(v => {
             r.str.push(v);
