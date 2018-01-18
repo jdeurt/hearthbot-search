@@ -13,10 +13,12 @@ module.exports = function(input) {
 
     // will only return first result
     String.prototype.matchWithArray = function(array) {
-        var r = {bool, str};
-        var regex = new RegExp("("+array.join("|")+")", "i");
+        var r = {bool, str = []};
+        var regex = new RegExp("("+array.join("|")+")", "gi");
         r.bool = this.includes(regex);
-        r.str = this.match(regex);
+        this.match(regex).forEach(v => {
+            r.str.push(v);
+        });
         return r;
     };
 
@@ -26,8 +28,12 @@ module.exports = function(input) {
 
     var toSearch = {};
     var pushSearch = function(array, s) {
-        if(input.matchWithArray(array).bool)
-            toSearch[s] = input.matchWithArray(array).str;
+        if(input.matchWithArray(array).bool) {
+            if(!toSearch[s]) toSearch[s] = new Array();
+            input.matchWithArray(array).str.forEach(v => {
+                toSearch[s].push(v);
+            });
+        }
     };
 
     pushSearch(config.search.RARITY, "rarity");
@@ -35,7 +41,23 @@ module.exports = function(input) {
     pushSearch(config.search.CLASS, "class");
     pushSearch(config.search.TEXT, "text");
     if(input.includes("/")) {
-        toSearch.attack
+        var numbers = input.match(/\d+\/\d+/)[0];
+        toSearch.attack = parseInt(numbers.slice(0, numbers.indexOf("/")));
+        toSearch.health = parseInt(numbers.slice(numbers.indexOf("/")+1));
     }
-    if(input.includes("mana") || input.includes("cost"));
+    if(input.includes("mana")) {
+        var mana = input.match(/\d+\smana/i)[0];
+        toSearch.cost = mana.match(/\d+/)[0];
+    }
+
+    /*
+        In the end, the object should look something like:
+            toSearch: {
+                rarity: "rare",
+                cost: 6,
+                attack: 4,
+                health: 4
+            }
+        if the user searches for "rare 6 mana 4/4"
+    */
 }
