@@ -77,6 +77,7 @@ config.search.CLASS = [
 ];
 config.search.TEXT = [ //!
 	"adapt",
+	"gain",
 	"restore",
 	"holding",
 	"draw",

@@ -71,6 +71,7 @@ A attribute search addon for the /r/hearthstone discord cardbot
 
 ### Supported key words
 * adapt
+* gain
 * restore
 * holding
 * draw
