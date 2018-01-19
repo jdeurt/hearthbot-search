@@ -11,6 +11,11 @@ results = ["card name 1", "card name 2", ...]
 */
 ```
 
+###TODO
+* Figure out a way to use the hearthbot-web API to filter results and not have to use a JSON file
+* There doesn't seem to be a problem with the search result times, but it's always good to optimize the code even further
+* Launch the updated hearthbot
+
 ### Supported attributes
 * cost
   - any whole number
@@ -25,8 +30,37 @@ results = ["card name 1", "card name 2", ...]
 * class
   - neutral, any of the 9 heroes
 * text
-  - a key word (to see the list of supported key words scroll to the bottom)
-
+  - a key word (listed below)
+#### Supported key words
+* adapt
+* gain
+* restore
+* holding
+* draw
+* recruit
+* battlecry
+* charge
+* choose one
+* combo
+* counter
+* deathrattle
+* discover
+* enrage
+* freeze
+* immune
+* inspire
+* lifesteal
+* mega-windfury
+* overload
+* poisonous
+* quest
+* silence
+* stealth
+* spell damage
+* taunt
+* secret
+* divine shield
+* windfury
 
 ### Card object examples
 #### Minion
@@ -78,34 +112,3 @@ results = ["card name 1", "card name 2", ...]
     "health": 2
     }
 ```
-
-### Supported key words
-* adapt
-* gain
-* restore
-* holding
-* draw
-* recruit
-* battlecry
-* charge
-* choose one
-* combo
-* counter
-* deathrattle
-* discover
-* enrage
-* freeze
-* immune
-* inspire
-* lifesteal
-* mega-windfury
-* overload
-* poisonous
-* quest
-* silence
-* stealth
-* spell damage
-* taunt
-* secret
-* divine shield
-* windfury
