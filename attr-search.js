@@ -1,5 +1,3 @@
-import { isMaster } from 'cluster';
-
 /**
  * Card attribute search
  * @param {string} input the search string
