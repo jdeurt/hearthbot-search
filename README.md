@@ -11,7 +11,7 @@ results = ["card name 1", "card name 2", ...]
 */
 ```
 
-###TODO
+### TODO
 * Figure out a way to use the hearthbot-web API to filter results and not have to use a JSON file
 * There doesn't seem to be a problem with the search result times, but it's always good to optimize the code even further
 * Launch the updated hearthbot
