@@ -62,7 +62,7 @@ module.exports = function(input) {
                 if(isNaN(toSearch[attribute])) isMatch = (isMatch && cards[prop].toLowerCase().includes(toSearch[attribute].toLowerCase()));
                 else isMatch = (isMatch && cards[prop] == toSearch[attribute]);
             }
-            if(isMatch) {
+            if(isMatch && searchResult.length <= config.SEARCH_RESULT_LIMIT) {
                 searchResult.push(search_cards[prop].name);
             }
         }

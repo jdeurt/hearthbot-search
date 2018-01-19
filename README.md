@@ -1,6 +1,16 @@
 # hearthbot-search
 A attribute search addon for the /r/hearthstone discord cardbot
 
+### Getting started
+```javascript
+var search = require('./attr-search');
+// ...
+var results = search(searchString); // a string that may contain search trigger words
+/*
+results = ["card name 1", "card name 2", ...]
+*/
+```
+
 ### Supported attributes
 * cost
   - any whole number
