@@ -1,3 +1,5 @@
+import { isMaster } from 'cluster';
+
 /**
  * Card attribute search
  * @param {string} input the search string
@@ -25,6 +27,7 @@ module.exports = function(input) {
         return;
 
     var toSearch = {};
+    var searchResult = [];
     var pushSearch = function(array, s) {
         if(input.matchWithArray(array).bool) {
             if(!toSearch[s]) toSearch[s] = new Array();
@@ -48,14 +51,22 @@ module.exports = function(input) {
         toSearch.cost = parseInt(mana.match(/\d+/)[0]);
     }
 
-    /*
-        In the end, the object should look something like:
-            toSearch: {
-                rarity: "rare",
-                cost: 6,
-                attack: 4,
-                health: 4
+    fetch(config.SEARCH_URL)
+    .then(function(result) {
+        return result.json();
+    })
+    .then(function(search_cards) {
+        for(var prop in search_cards) {
+            var isMatch = true;
+            for(var attribute in toSearch) {
+                if(isNaN(toSearch[attribute])) isMatch = (isMatch && cards[prop].toLowerCase().includes(toSearch[attribute].toLowerCase()));
+                else isMatch = (isMatch && cards[prop] == toSearch[attribute]);
             }
-        if the user searches for "rare 6 mana 4/4"
-    */
+            if(isMatch) {
+                searchResult.push(search_cards[prop].name);
+            }
+        }
+    });
+
+    return searchResult;
 }

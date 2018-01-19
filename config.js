@@ -4,6 +4,7 @@ var config = { search: {} };
 config.ALLOW_CARDS = true;
 config.CARD_LIMIT = 4; // max cards to print from one message
 config.CARD_LENGTH_MIN = 3; // minimum card string length to search
+config.SEARCH_RESULT_LIMIT = 10;// max results when searching for a card
 config.COLLECTIBLE_ONLY = true; // only show collectible cards
 config.PRINT_CARD_DETAILS = true; // print details instead of the card image
 config.ALLOW_CARD_ONLY = true; // allow suffix to only show card
@@ -235,5 +236,6 @@ config.CLASSES = {
 };
 
 config.API_URL = "http://jjdev.io/hearthbot/data.php?";
+config.SEARCH_URL = "https://jjdev.io/hearthbot/cards.json";
 
 module.exports = config;
