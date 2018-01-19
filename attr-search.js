@@ -61,6 +61,7 @@ module.exports = function(input) {
             for(var attribute in toSearch) {
                 if(isNaN(toSearch[attribute])) isMatch = (isMatch && cards[prop].toLowerCase().includes(toSearch[attribute].toLowerCase()));
                 else isMatch = (isMatch && cards[prop] == toSearch[attribute]);
+                if(config.COLLECTIBLE_ONLY && !cards[prop].collectible) isMatch = false;
             }
             if(isMatch && searchResult.length <= config.SEARCH_RESULT_LIMIT) {
                 searchResult.push(search_cards[prop].name);
