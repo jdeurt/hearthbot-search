@@ -21,7 +21,7 @@ module.exports = function(input) {
     };
 
     // to make sure the trigger word is valid, it should be by itself and not part of another word
-    if(input.search(new RegExp(`(^|\s)(${config.search.ALL.join("|")})($|\s)`, "i")) == -1)
+    if(input.search(new RegExp(`\b(${config.search.ALL.join("|")})\b`, "i")) == -1)
         return;
 
     var toSearch = {};
@@ -45,7 +45,7 @@ module.exports = function(input) {
         toSearch.health = parseInt(numbers.slice(numbers.indexOf("/")+1));
     }
     if(input.includes("mana")) {
-        var mana = input.match(/\d+\smana/i)[0];
+        var mana = input.match(/\d+\smana\b/i)[0];
         toSearch.cost = parseInt(mana.match(/\d+/)[0]);
     }
 
