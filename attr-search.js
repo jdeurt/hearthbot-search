@@ -35,6 +35,7 @@ module.exports = function(input) {
         }
     };
 
+    // if a search word is found, add it to the toSearch object
     pushSearch(config.search.RARITY, "rarity");
     pushSearch(config.search.TYPE, "type");
     pushSearch(config.search.CLASS, "class");
@@ -49,6 +50,7 @@ module.exports = function(input) {
         toSearch.cost = parseInt(mana.match(/\d+/)[0]);
     }
 
+    // use the card database specified in config.SEARCH_URL to search for cards that meet the search requirements
     fetch(config.SEARCH_URL)
     .then(function(result) {
         return result.json();
@@ -67,5 +69,6 @@ module.exports = function(input) {
         }
     });
 
+    // return an array of card names that meet the requirements
     return searchResult;
 }
