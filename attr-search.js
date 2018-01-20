@@ -11,8 +11,8 @@ module.exports = function(input) {
 
     // will only return first result
     String.prototype.matchWithArray = function(array) {
-        var r = {bool, str = []};
-        var regex = new RegExp(array.join("|"), "gi");
+        var r = {bool: false, str: []};
+        var regex = new RegExp("("+array.join("|")+")", "gi");
         r.bool = (this.search(regex) >= 0);
         this.match(regex).forEach(v => {
             r.str.push(v);
@@ -59,9 +59,15 @@ module.exports = function(input) {
         for(var prop in search_cards) {
             var isMatch = true;
             for(var attribute in toSearch) {
-                if(isNaN(toSearch[attribute])) isMatch = (isMatch && cards[prop].toLowerCase().includes(toSearch[attribute].toLowerCase()));
-                else isMatch = (isMatch && cards[prop] == toSearch[attribute]);
-                if(config.COLLECTIBLE_ONLY && !cards[prop].collectible) isMatch = false;
+                if(Array.isArray(toSearch[attribute]))
+                    toSearch[attribute].forEach(v => {
+                        isMatch = (isMatch && search_cards[prop][attribute].toLowerCase().includes(v.toLowerCase()));
+                    });
+                else if(isNaN(toSearch[attribute]))
+                    isMatch = (isMatch && search_cards[prop][attribute].toLowerCase().includes(toSearch[attribute].toLowerCase()));
+                else
+                    isMatch = (isMatch && search_cards[prop][attribute] === toSearch[attribute]);
+                if(config.COLLECTIBLE_ONLY && !search_cards[prop].collectible) isMatch = false;
             }
             if(isMatch && searchResult.length <= config.SEARCH_RESULT_LIMIT) {
                 searchResult.push(search_cards[prop].name);
