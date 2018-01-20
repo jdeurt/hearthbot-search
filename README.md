@@ -18,7 +18,7 @@ Search string:
 ```
 Result:
 ```javascript
-["Gadgetztan Auctioneer"]
+["Gadgetztan Auctioneer", "Fight Promoter"]
 ```
 
 ### TODO
