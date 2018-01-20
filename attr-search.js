@@ -13,7 +13,7 @@ module.exports = function(input) {
     String.prototype.matchWithArray = function(array) {
         var r = {bool, str = []};
         var regex = new RegExp(array.join("|"), "gi");
-        r.bool = this.includes(regex);
+        r.bool = (this.search(regex) >= 0);
         this.match(regex).forEach(v => {
             r.str.push(v);
         });
@@ -21,7 +21,7 @@ module.exports = function(input) {
     };
 
     // to make sure the trigger word is valid, it should be by itself and not part of another word
-	if(!input.includes(new RegExp(`(^|\s)(${config.search.ALL.join("|")})($|\s)`, "i")))
+    if(input.search(new RegExp(`(^|\s)(${config.search.ALL.join("|")})($|\s)`, "i")) == -1)
         return;
 
     var toSearch = {};
