@@ -22,7 +22,7 @@ Result:
 ```
 
 ### TODO
-* BIG PROBLEMO: the results for the search are displayed correctly when logged into console but don't get returned???
+* **BIG PROBLEMO**: the results for the search are displayed correctly when logged into console but don't get returned???
 * Figure out a way to use the hearthbot-web API to filter results and not have to use a JSON file
 * Launch the updated hearthbot
 
