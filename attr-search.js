@@ -25,7 +25,6 @@ module.exports = function(input) {
         return;
 
     var toSearch = {};
-    var searchResult = [];
     var pushSearch = function(array, s) {
         if(input.matchWithArray(array).bool) {
             if(!toSearch[s]) toSearch[s] = new Array();
@@ -50,31 +49,6 @@ module.exports = function(input) {
         toSearch.cost = parseInt(mana.match(/\d+/)[0]);
     }
 
-    // use the card database specified in config.SEARCH_URL to search for cards that meet the search requirements
-    fetch(config.SEARCH_URL)
-    .then(function(result) {
-        return result.json();
-    })
-    .then(function(search_cards) {
-        for(var prop in search_cards) {
-            var isMatch = true;
-            for(var attribute in toSearch) {
-                if(Array.isArray(toSearch[attribute]))
-                    toSearch[attribute].forEach(v => {
-                        isMatch = (isMatch && search_cards[prop][attribute].toLowerCase().includes(v.toLowerCase()));
-                    });
-                else if(isNaN(toSearch[attribute]))
-                    isMatch = (isMatch && search_cards[prop][attribute].toLowerCase().includes(toSearch[attribute].toLowerCase()));
-                else
-                    isMatch = (isMatch && search_cards[prop][attribute] === toSearch[attribute]);
-                if(config.COLLECTIBLE_ONLY && !search_cards[prop].collectible) isMatch = false;
-            }
-            if(isMatch && searchResult.length <= config.SEARCH_RESULT_LIMIT) {
-                searchResult.push(search_cards[prop].name);
-            }
-        }
-    });
-
-    // return an array of card names that meet the requirements
-    return searchResult;
+    // return an object containing all the search keys
+    return toSearch;
 }
