@@ -3,11 +3,7 @@
  * @param {string} input the search string
  */
 module.exports = function(input) {
-    var Discord = require('discord.io');
-    var logger = require('winston');
     var config = require('./config');
-    var fetch = require('node-fetch');
-    fetch.Promise = require('bluebird');
 
     // will only return first result
     String.prototype.matchWithArray = function(array) {
