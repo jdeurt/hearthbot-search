@@ -37,8 +37,8 @@ module.exports = function(input) {
     pushSearch(config.search.TEXT, "text");
     if(input.includes("/")) {
         var numbers = input.match(/\d+\/\d+/)[0];
-        toSearch.attack = parseInt(numbers.slice(0, numbers.indexOf("/")));
-        toSearch.health = parseInt(numbers.slice(numbers.indexOf("/")+1));
+        toSearch.attack = parseInt(numbers.match(/^\d+/)[0]);
+        toSearch.health = parseInt(numbers.match(/\d+$/)[0]);
     }
     if(input.includes("mana")) {
         var mana = input.match(/\d+\smana\b/i)[0];
