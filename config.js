@@ -236,6 +236,5 @@ config.CLASSES = {
 };
 
 config.API_URL = "http://jjdev.io/hearthbot/data.php?";
-config.SEARCH_URL = "https://jjdev.io/hearthbot/cards.json";
 
 module.exports = config;
