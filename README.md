@@ -1,9 +1,14 @@
 # hearthbot-search
 A attribute search addon for the /r/hearthstone discord cardbot
 
+### Instalation
+```
+npm i hearthbot-search --save
+```
+
 ### Getting started
 ```javascript
-var search = require('./attr-search');
+var search = require('hearthbot-search');
 // ...
 var results = search(searchString); // a string that may contain search trigger words
 /*
