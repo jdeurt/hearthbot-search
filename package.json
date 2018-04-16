@@ -1,0 +1,23 @@
+{
+  "name": "hearthbot-search",
+  "version": "1.2.0",
+  "description": "A card search module for Hearthbot",
+  "main": "attr-search.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdeurt/hearthbot-search.git"
+  },
+  "keywords": [
+    "hearthstone",
+    "hearthbot"
+  ],
+  "author": "Juan de urtubey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdeurt/hearthbot-search/issues"
+  },
+  "homepage": "https://github.com/jdeurt/hearthbot-search#readme"
+}
